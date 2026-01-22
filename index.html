@@ -1,851 +1,222 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Vashishth Raval</title>
-
+    <meta name="description" content="Portfolio of Vashishth Raval - Data Scientist & Machine Learning Engineer">
+    <title>Vashishth Raval | Data Scientist</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <link rel="stylesheet" href="style.css">
-
-    <link rel="stylesheet" href="mediaqueries.css">
-
 </head>
-
 <body>
+    <canvas id="star-canvas"></canvas>
 
-    <nav id="desktop-nav">
-
-        <div class="logo">Vashishth Raval</div>
-
-        <div>
-
-            <ul class="nav-links">
-
-                <li><a href='#about'>About</a></li>
-
-                <li><a href='#experience'>Experience</a></li>
-
-                <li><a href='#projects'>Projects</a></li>
-
-                <li><a href='#contact'>Contact</a></li>
-
-            </ul>
-
+    <nav id="navbar">
+        <div class="logo">VR<span class="dot">.</span></div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact" class="btn-nav">Contact</a></li>
+        </ul>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
         </div>
-
     </nav>
 
-    <nav id="hamburger-nav">
+    <div class="mobile-menu">
+        <span class="close-menu" onclick="toggleMenu()">&times;</span>
+        <a href="#about" onclick="toggleMenu()">About</a>
+        <a href="#skills" onclick="toggleMenu()">Skills</a>
+        <a href="#projects" onclick="toggleMenu()">Projects</a>
+        <a href="#contact" onclick="toggleMenu()">Contact</a>
+    </div>
 
-        <div class="logo">Vashishth Raval</div>
-
-        <div class="hamburger-menu">
-
-            <div class="hamburger-icon" onclick="toggleMenu()">
-
-                <span></span>
-
-                <span></span>
-
-                <span></span>
-
-        </div>
-
-        <div class="menu-links">
-
-            <li><a href='#about' onclick="toggleMenu()">About</a></li>
-
-            <li><a href='#experience' onclick="toggleMenu()">Experience</a></li>
-
-            <li><a href='#projects' onclick="toggleMenu()">Projects</a></li>
-
-            <li><a href='#contact' onclick="toggleMenu()">Contact</a></li>
-
-        </div>
-
-    </nav>
-
-    <section id="profile">
-
-        <div class="section__pic-container">
-
-            <img src="./Assets/profile-pic1.png" alt="Vashishth Raval Profile Picture"/>
-
-        </div>
-
-        <div class="section__text">
-
-            <p class="section__text__p1">Hello, I'm</p>
-
-            <h1 class="title">Vashishth Raval</h1>
-
-            <p class="section__text__p2">Data Scientist</p>
-
+    <section id="hero">
+        <div class="hero-content">
+            <div class="profile-frame">
+                <img src="assets/profile-pic.png" alt="Vashishth Raval" onerror="this.src='https://via.placeholder.com/400x400/38bdf8/0f172a?text=VR'">
+            </div>
+            <p class="greeting">Hello, I'm</p>
+            <h1 class="glitch-text" data-text="Vashishth Raval">Vashishth Raval</h1>
+            <h2 class="subtitle">Data Scientist & ML Engineer</h2>
             <div class="btn-container">
-
-                <button 
-
-                class="btn btn-color-2" 
-
-                onclick="window.open('./Assets/Vashishth_Raval_Associate_Business_Analyst.pdf')"
-
-                >
-
-                Download Resume
-
-            </button>
-
-                <button 
-
-                class="btn btn-color-1" 
-
-                onclick="location.href='./#contact'">
-
-                Contact Info
-
-            </button>
-
+                <a href="./Assets/Vashishth_Raval_Resume.pdf" target="_blank" class="btn btn-primary">
+                    <i class="fas fa-download"></i> Download CV
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Contact Me
+                </a>
             </div>
-
-            <div id="socials-container">
-
-                <img 
-
-                src="./Assets/linkedin.png" 
-
-                alt="My LikedIn Profile"
-
-                class="icon" 
-
-                onclick="location.href='https://linkedin.com/in/vashishthraval'"
-
-                />
-
-                <img
-
-                src="./Assets/github.png"
-
-                alt="My Github Profile"
-
-                class="icon"
-
-                onclick="location.href='https://github.com/vashishthraval6899'"
-
-                />
-
+            <div class="socials">
+                <a href="https://linkedin.com/in/vashishthraval" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/vashishthraval6899" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:vraval765@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
-
         </div>
-
+        
+        <a href="#about" class="scroll-down">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span class="arrow-span"></span>
+        </a>
     </section>
 
-    <section id="about">
-
-        <p class="section__text__p1">Get To Know More</p>
-
-        <h1 class="title">About Me</h1>
-
-        <div class="section-container">
-
-            <div class="section__pic-container">
-
-                <img 
-
-                src="./Assets/about-pic.png"
-
-                alt="Profile Picture"
-
-                class="about-pic"
-
-                />
-
-            </div>
-
-            <div class="about-details-container">
-
-                <div class="about-containers">
-
-                    <div class="details-container">
-
-                        <img 
-
-                        src="./Assets/experience.png" 
-
-                        alt="'experience icon"
-
-                        class="icon"
-
-                        />
-
-                        <h3>Experience</h3>
-
-                        <p>2.5+ Years <br />Business Analyst</p>
-
-                    </div>
-
-                    <div class="details-container">
-
-                        <img 
-
-                        src="./Assets/education.png" 
-
-                        alt="'education icon"
-
-                        class="icon"
-
-                        />
-
-                        <h3>Education</h3>
-
-                        <p>Masters in Data Science <br />Bachelor’s in Electrical Engineering</p>
-
-                    </div>
-
+    <section id="about" class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="glass-card about-card">
+            <div class="about-stats">
+                <div class="stat-box">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>2.5+ Years</h3>
+                    <p>Business Analysis & DS</p>
                 </div>
-
-                <div class="text-container">
-
-                    <p> I'm a passionate Data Scientist with a Master’s from DA-IICT and 2.5 years of experience as a Business Analyst in fintech. 
-
-                        I’ve worked on Neo Banking, Agency Banking, and Wallet Systems—streamlining workflows and aligning tech with business goals. 
-
-                        Now, I focus on building AI-driven solutions by blending skills in Python, SQL, ML, DL, and statistics with strong business insight.
-
+                <div class="stat-box">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Master's</h3>
+                    <p>Data Science (DA-IICT)</p>
                 </div>
-
             </div>
-
-        </div>
-
-        <img 
-
-        src="./Assets/arrow.png"
-
-        alt="Arrow icon"
-
-        class="icon arrow"
-
-        onclick="location.href='./#experience'"
-
-        />
-
-    </section>
-
-    <section id="experience">
-
-        <p class="section__text__p1">Here are My</p>
-
-        <h1 class="title">Skills</h1>
-
-        <div class="experience-details-container">
-
-            <div class="about-containers">
-
-                <div class="details-container">
-
-                    <h2 class="experience-sub-title">Competencies</h2>
-
-                    <div class="article-container">
-
-                        <article>
-
-                            <img 
-
-                            src="./Assets/checkmark.png"
-
-                            alt="Experience icon"
-
-                            class="icon"
-
-                            />
-
-                            <div>
-
-                                <h3>Python</h3>
-
-                                <p>Experienced</p>
-
-                            </div>
-
-                        </article>
-
-                        <article>
-
-                            <img 
-
-                            src="./Assets/checkmark.png"
-
-                            alt="Experience icon"
-
-                            class="icon"
-
-                            />
-
-                            <div>
-
-                                <h3>Machine Learning</h3>
-
-                                <p>Experienced</p>
-
-                            </div>
-
-                        </article>
-
-                        <article>
-
-                            <img 
-
-                            src="./Assets/checkmark.png"
-
-                            alt="Experience icon"
-
-                            class="icon"
-
-                            />
-
-                            <div>
-
-                                <h3>Deep Learning</h3>
-
-                                <p>Experienced</p>
-
-                            </div>
-
-                        </article>
-
-                        <article>
-
-                            <img 
-
-                            src="./Assets/checkmark.png"
-
-                            alt="Experience icon"
-
-                            class="icon"
-
-                            />
-
-                            <div>
-
-                                <h3>SQL</h3>
-
-                                <p>Experienced</p>
-
-                            </div>
-
-                        </article>
-
-                        <article>
-
-                            <img 
-
-                            src="./Assets/checkmark.png"
-
-                            alt="Experience icon"
-
-                            class="icon"
-
-                            />
-
-                            <div>
-
-                                <h3>Mathematics for Data Science</h3>
-
-                                <p>Experienced</p>
-
-                            </div>
-
-                        </article>
-
-                        <article>
-
-                            <img 
-
-                            src="./Assets/checkmark.png"
-
-                            alt="Experience icon"
-
-                            class="icon"
-
-                            />
-
-                            <div>
-
-                                <h3>Statistics</h3>
-
-                                <p>Experienced</p>
-
-                            </div>
-
-                        </article>
-
-                    </div>
-
-                </div>
-
-                <div class="details-container">
-
-                    <h2 class="experience-sub-title">Tools/Frameworks</h2>
-
-                    <div class="article-container">
-
-                        <article>
-
-                            <img 
-
-                            src="./Assets/checkmark.png"
-
-                            alt="Experience icon"
-
-                            class="icon"
-
-                            />
-
-                            <div>
-
-                                <h3>PostgreSQL</h3>
-
-                                <p>Experienced</p>
-
-                            </div>
-
-                        </article>
-
-                        <article>
-
-                            <img 
-
-                            src="./Assets/checkmark.png"
-
-                            alt="Experience icon"
-
-                            class="icon"
-
-                            />
-
-                            <div>
-
-                                <h3>Pycharm</h3>
-
-                                <p>Experienced</p>
-
-                            </div>
-
-                        </article>
-
-                        <article>
-
-                            <img 
-
-                            src="./Assets/checkmark.png"
-
-                            alt="Experience icon"
-
-                            class="icon"
-
-                            />
-
-                            <div>
-
-                                <h3>Pandas</h3>
-
-                                <p>Experienced</p>
-
-                            </div>
-
-                        </article>
-
-                        <article>
-
-                            <img 
-
-                            src="./Assets/checkmark.png"
-
-                            alt="Experience icon"
-
-                            class="icon"
-
-                            />
-
-                            <div>
-
-                                <h3>Numpy</h3>
-
-                                <p>Experienced</p>
-
-                            </div>
-
-                        </article>
-
-                        <article>
-
-                            <img 
-
-                            src="./Assets/checkmark.png"
-
-                            alt="Experience icon"
-
-                            class="icon"
-
-                            />
-
-                            <div>
-
-                                <h3>Tensorflow</h3>
-
-                                <p>Experienced</p>
-
-                            </div>
-
-                        </article>
-
-                        <article>
-
-                            <img 
-
-                            src="./Assets/checkmark.png"
-
-                            alt="Experience icon"
-
-                            class="icon"
-
-                            />
-
-                            <div>
-
-                                <h3>Keras</h3>
-
-                                <p>Experienced</p>
-
-                            </div>
-
-                        </article>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <img 
-
-        src="./Assets/arrow.png"
-
-        alt="Arrow icon"
-
-        class="icon arrow"
-
-        onclick="location.href='./#projects'"
-
-        />
-
-    </section>
-
-    <section id="projects">
-
-        <p class="section__text__p1">Browsw My Recent</p>
-
-        <h1 class="title">Projects</h1>
-
-        <div class="experience-details-container">
-
-            <div class="about-containers horizontal-scroll">
-
-                <div class="details-container color-container">
-
-                    <div class="article-container">
-
-                        <img
-
-                        src="./Assets/project-1.png"
-
-                        alt="Project 1"
-
-                        class="project-img"
-
-                        />
-
-                    </div>
-
-                        <h2 class="experience-sub-title project-title">Project One</h2>
-
-                        <div class="btn-container">
-
-                            <button 
-
-                            class="btn btn-color-2 project-btn" 
-
-                            onclick="location.href='https://github.com/'"
-
-                            >
-
-                            Github
-
-                            </button>
-
-                            <button 
-
-                            class="btn btn-color-2 project-btn" 
-
-                            onclick="location.href='https://github.com/'"
-
-                            >
-
-                            Live Demo
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                <div class="details-container color-container">
-
-                    <div class="article-container">
-
-                        <img
-
-                        src="./Assets/project-2.png"
-
-                        alt="Project 2"
-
-                        class="project-img"
-
-                        />
-
-                    </div>
-
-                        <h2 class="experience-sub-title project-title">Project Two</h2>
-
-                        <div class="btn-container">
-
-                            <button 
-
-                            class="btn btn-color-2 project-btn" 
-
-                            onclick="location.href='https://github.com/'"
-
-                            >
-
-                            Github
-
-                            </button>
-
-                            <button 
-
-                            class="btn btn-color-2 project-btn" 
-
-                            onclick="location.href='https://github.com/'"
-
-                            >
-
-                            Live Demo
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                <div class="details-container color-container">
-
-                        <div class="article-container">
-
-                            <img
-
-                            src="./Assets/project-3.png"
-
-                            alt="Project 3"
-
-                            class="project-img"
-
-                            />
-
-                        </div>
-
-                            <h2 class="experience-sub-title project-title">Project Three</h2>
-
-                            <div class="btn-container">
-
-                                <button 
-
-                                class="btn btn-color-2 project-btn" 
-
-                                onclick="location.href='https://github.com/'"
-
-                                >
-
-                                Github
-
-                                </button>
-
-                                <button 
-
-                                class="btn btn-color-2 project-btn" 
-
-                                onclick="location.href='https://github.com/'"
-
-                                >
-
-                                Live Demo
-
-                                </button>
-
-                            </div>
-
-                    </div>
-
-                <div class="details-container color-container">
-
-                        <div class="article-container">
-
-                            <img
-
-                            src="./Assets/project-3.png"
-
-                            alt="Project 4"
-
-                            class="project-img"
-
-                            />
-
-                        </div>
-
-                            <h2 class="experience-sub-title project-title">Project Four</h2>
-
-                            <div class="btn-container">
-
-                                <button 
-
-                                class="btn btn-color-2 project-btn" 
-
-                                onclick="location.href='https://github.com/'"
-
-                                >
-
-                                Github
-
-                                </button>
-
-                                <button 
-
-                                class="btn btn-color-2 project-btn" 
-
-                                onclick="location.href='https://github.com/'"
-
-                                >
-
-                                Live Demo
-
-                                </button>
-
-                            </div>
-
-                    </div>
-
-            </div>
-
-            </div>
-
-        </div>
-
-        <img 
-
-        src="./Assets/arrow.png"
-
-        alt="Arrow icon"
-
-        class="icon arrow"
-
-        onclick="location.href='./#contact'"
-
-        />
-
-    </section> 
-
-    <section id="contact">
-
-        <p class="section__text__p1">Get in Touch</p>
-
-        <h1 class="title">Contact Me</h1>
-
-        <div class="contact-info-upper-container">
-
-            <div class="contact-info-container">
-
-                <img
-
-                src="./Assets/email.png"
-
-                alt="Email icon"
-
-                class="icon contact-icon email-icon"
-
-                />
-
-                <p><a href="mailto:vraval765@gmail.com">vraval765@gmail.com</a>
-
+            <div class="about-text">
+                <p>
+                    I bridge the gap between complex data and actionable business insights. With a Master’s in Data Science and over 2.5 years of experience in Fintech (Neo Banking, Wallets), I specialize in building AI-driven solutions that scale.
                 </p>
+                <p>
+                    My approach combines rigorous statistical analysis with modern Deep Learning techniques. Whether it's optimizing SQL workflows or deploying Neural Networks, I focus on efficiency, accuracy, and business impact.
+                </p>
+            </div>
+        </div>
+    </section>
 
+    <section id="skills" class="container">
+        <h2 class="section-title">Technical Arsenal</h2>
+        
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3><i class="fas fa-brain"></i> Machine Learning</h3>
+                <div class="skill-tags">
+                    <span>Python</span>
+                    <span>TensorFlow</span>
+                    <span>Keras</span>
+                    <span>Scikit-learn</span>
+                    <span>Deep Learning</span>
+                    <span>NLP</span>
+                </div>
             </div>
 
-            <div class="contact-info-container">
+            <div class="skill-category">
+                <h3><i class="fas fa-database"></i> Data Engineering</h3>
+                <div class="skill-tags">
+                    <span>SQL (PostgreSQL)</span>
+                    <span>Pandas</span>
+                    <span>NumPy</span>
+                    <span>ETL Pipelines</span>
+                    <span>Data Wrangling</span>
+                </div>
+            </div>
 
-                <img
+            <div class="skill-category">
+                <h3><i class="fas fa-chart-line"></i> Analytics & Math</h3>
+                <div class="skill-tags">
+                    <span>Statistics</span>
+                    <span>Linear Algebra</span>
+                    <span>Hypothesis Testing</span>
+                    <span>Tableau/PowerBI</span>
+                    <span>Business Intel</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                src="./Assets/linkedin.png"
+    <section id="projects" class="container">
+        <h2 class="section-title">Deployments</h2>
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://via.placeholder.com/600x400/1e293b/38bdf8?text=Project+One" alt="Project 1">
+                </div>
+                <div class="project-content">
+                    <h3>Predictive Analytics Engine</h3>
+                    <p>A machine learning model designed to forecast customer churn using historical transaction data.</p>
+                    <div class="tech-stack">
+                        <small>Python</small>
+                        <small>XGBoost</small>
+                        <small>Flask</small>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" target="_blank" class="btn-sm"><i class="fab fa-github"></i> Code</a>
+                        <a href="#" target="_blank" class="btn-sm btn-outline"><i class="fas fa-external-link-alt"></i> Live</a>
+                    </div>
+                </div>
+            </div>
 
-                alt="Linkedin icon"
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://via.placeholder.com/600x400/1e293b/38bdf8?text=Project+Two" alt="Project 2">
+                </div>
+                <div class="project-content">
+                    <h3>Fintech Transaction Classifier</h3>
+                    <p>NLP-based system to categorize banking transactions automatically with 95% accuracy.</p>
+                    <div class="tech-stack">
+                        <small>TensorFlow</small>
+                        <small>BERT</small>
+                        <small>PostgreSQL</small>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" target="_blank" class="btn-sm"><i class="fab fa-github"></i> Code</a>
+                        <a href="#" target="_blank" class="btn-sm btn-outline"><i class="fas fa-external-link-alt"></i> Live</a>
+                    </div>
+                </div>
+            </div>
 
-                class="icon contact-icon"
-
-                />
-
-                <p><a href="https://www.linkedin.com/in/vashishthraval/">Linkedin</a>
-
-                </p>
-
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://via.placeholder.com/600x400/1e293b/38bdf8?text=Project+Three" alt="Project 3">
+                </div>
+                <div class="project-content">
+                    <h3>Visual Data Dashboard</h3>
+                    <p>Interactive dashboard for visualizing real-time market trends and wallet usage.</p>
+                    <div class="tech-stack">
+                        <small>Streamlit</small>
+                        <small>Plotly</small>
+                        <small>Pandas</small>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" target="_blank" class="btn-sm"><i class="fab fa-github"></i> Code</a>
+                        <a href="#" target="_blank" class="btn-sm btn-outline"><i class="fas fa-external-link-alt"></i> Live</a>
+                    </div>
+                </div>
             </div>
 
         </div>
+    </section>
 
+    <section id="contact" class="container">
+        <h2 class="section-title">Initialize Handshake</h2>
+        <div class="glass-card contact-wrapper">
+            <p>Currently open to new opportunities in Data Science and ML Engineering.</p>
+            <a href="mailto:vraval765@gmail.com" class="email-link">
+                <i class="fas fa-envelope-open-text"></i> vraval765@gmail.com
+            </a>
+            <div class="socials-large">
+                <a href="https://linkedin.com/in/vashishthraval" target="_blank">LinkedIn <i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/vashishthraval6899" target="_blank">GitHub <i class="fab fa-github"></i></a>
+            </div>
+        </div>
     </section>
 
     <footer>
-
-        <nav>
-
-            <div class="nav-links-container">
-
-                <ul class="nav-links">
-
-                    <li><a href='#about'>About</a></li>
-
-                    <li><a href='#experience'>Experience</a></li>
-
-                    <li><a href='#projects'>Projects</a></li>
-
-                    <li><a href='#contact'>Contact</a></li>
-
-                </ul>
-
-            </div>
-
-        </nav>
-
-        <p>Copyright &#169; 2025 Vashishth Raval. All Rights Reserved.</p>
-
+        <p>Designed & Built by Vashishth Raval &copy; 2025</p>
     </footer>
 
     <script src="script.js"></script>
-
 </body>
-
 </html>
