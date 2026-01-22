@@ -4,214 +4,178 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio of Vashishth Raval - Data Scientist & Machine Learning Engineer">
-    <title>Vashishth Raval | Data Scientist</title>
+    <title>Vashishth Raval | Data Science & ML</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="paper-texture"></div> <div class="sketch-overlay">
-        <i class="fas fa-star sketch-icon item-1"></i>
-        <i class="far fa-moon sketch-icon item-2"></i>
-        <i class="fas fa-rocket sketch-icon item-3"></i>
-        <i class="fas fa-globe sketch-icon item-4"></i>
-        <i class="fas fa-atom sketch-icon item-5"></i>
-        <div class="drawn-line line-1"></div>
+    <div class="canvas-background">
+        <div class="doodle doodle-sun"><i class="fa-regular fa-sun"></i></div>
+        <div class="doodle doodle-rocket"><i class="fa-solid fa-rocket"></i></div>
+        <div class="doodle doodle-planet"><i class="fa-solid fa-earth-americas"></i></div>
+        <div class="doodle doodle-stars-1">✦</div>
+        <div class="doodle doodle-stars-2">✦</div>
+        <div class="doodle doodle-moon"><i class="fa-solid fa-moon"></i></div>
     </div>
 
     <nav id="navbar">
-        <div class="nav-container">
-            <div class="logo">VR<span class="dot">.</span></div>
+        <div class="nav-inner">
+            <div class="logo">VASHISHTH<span>.</span></div>
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact" class="btn-nav">Contact</a></li>
+                <li><a href="#about">Philosophy</a></li>
+                <li><a href="#skills">Tools</a></li>
+                <li><a href="#projects">Work</a></li>
+                <li><a href="#contact" class="nav-cta">Connect</a></li>
             </ul>
-            <div class="hamburger-menu">
-                <i class="fas fa-bars"></i>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
             </div>
         </div>
     </nav>
 
-    <div class="mobile-menu-overlay">
-        <span class="close-menu">&times;</span>
-        <div class="mobile-links">
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </div>
-
-    <section id="hero">
-        <div class="container hero-layout">
-            <div class="hero-text">
-                <span class="hero-tag">Data Scientist / ML Engineer</span>
-                <h1>Vashishth Raval</h1>
-                <p class="hero-desc">
-                    Translating complex data into clear business strategies. 
-                    Specializing in Machine Learning pipelines, Fintech analytics, and scalable AI solutions.
+    <header id="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <p class="hero-intro">Passionate about solving the world's puzzles.</p>
+                <h1>Architecting <span class="marker-underline">Intelligence</span> through Data.</h1>
+                <p class="hero-bio">
+                    I am a Data Scientist driven by the ambition to build world-class systems. I don't just process data; I seek the stories and solutions hidden within it to solve real-world problems.
                 </p>
-                
-                <div class="btn-container">
-                    <a href="Assets/Vashishth_Raval_Associate_Business_Analyst.pdf" target="_blank" class="btn btn-primary">
-                        Download CV
-                    </a>
-                    <a href="#contact" class="btn btn-outline">
-                        Contact Me
-                    </a>
-                </div>
-
-                <div class="socials">
-                    <a href="https://linkedin.com/in/vashishthraval" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/vashishthraval6899" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="mailto:vraval765@gmail.com"><i class="fas fa-envelope"></i></a>
+                <div class="hero-btns">
+                    <a href="Assets/Vashishth_Raval_Associate_Business_Analyst.pdf" target="_blank" class="btn btn-dark">View Resume</a>
+                    <a href="#projects" class="btn btn-light">Explore Work</a>
                 </div>
             </div>
-            
-            <div class="hero-visual">
-                <div class="image-frame">
-                    <img src="assets/Profile-Photo.jpeg" alt="Vashishth Raval" onerror="this.src='https://via.placeholder.com/400x400/f1f5f9/94a3b8?text=VR'">
-                    <div class="orbit orbit-1"></div>
-                    <div class="orbit orbit-2"></div>
+            <div class="hero-image-area">
+                <div class="image-box">
+                    <img src="assets/Profile-Photo.jpeg" alt="Vashishth Raval" onerror="this.src='https://via.placeholder.com/500x500?text=VR'">
+                    <div class="hand-drawn-frame"></div>
                 </div>
             </div>
         </div>
-    </section>
+    </header>
 
-    <section id="about" class="section-padding">
+    <section id="about" class="section">
         <div class="container">
-            <div class="section-header">
-                <h2>About Me</h2>
+            <div class="section-intro">
+                <span class="label">01 // Philosophy</span>
+                <h2>Mission-Driven Data Science</h2>
             </div>
-            
             <div class="about-grid">
-                <div class="info-card">
-                    <i class="fas fa-briefcase stroke-icon"></i>
-                    <h3>2.5+ Years</h3>
-                    <p>Fintech & DS Experience</p>
+                <div class="about-text">
+                    <p>With over 2.5 years of experience in Fintech analytics, I have learned that the best models are those that solve human problems. My goal is to bridge the gap between complex algorithms and meaningful impact.</p>
+                    <p>I am currently refining my craft to become a world-class Data Scientist, focusing on building end-to-end Machine Learning systems that are as robust as they are insightful.</p>
                 </div>
-                <div class="info-card">
-                    <i class="fas fa-graduation-cap stroke-icon"></i>
-                    <h3>Master's</h3>
-                    <p>Data Science (DA-IICT)</p>
-                </div>
-                <div class="bio-text">
-                    <p>
-                        I approach Data Science like an engineer and a strategist. With a strong foundation in <strong>Python, Statistics, and SQL</strong>, I focus on building systems that are reproducible and scalable. My goal is not just to build models, but to solve real-world problems with clarity and precision.
-                    </p>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-num">2.5+</span>
+                        <span class="stat-desc">Years in Fintech Analytics</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">MSc</span>
+                        <span class="stat-desc">Data Science (DA-IICT)</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="section-padding">
+    <section id="skills" class="section gray-bg">
         <div class="container">
-            <div class="section-header">
+            <div class="section-intro">
+                <span class="label">02 // Expertise</span>
                 <h2>Technical Toolkit</h2>
             </div>
-            
-            <div class="skills-wrapper">
-                <div class="skill-group">
-                    <h3><i class="fas fa-code"></i> Core & Analysis</h3>
-                    <div class="tags">
-                        <span>Python</span>
-                        <span>SQL</span>
-                        <span>Statistics</span>
-                        <span>Hypothesis Testing</span>
-                        <span>Pandas / NumPy</span>
-                        <span>Data Viz</span>
-                    </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Foundation</h3>
+                    <ul>
+                        <li>Python & SQL</li>
+                        <li>Statistical Modeling</li>
+                        <li>Hypothesis Testing</li>
+                        <li>Data Visualization</li>
+                    </ul>
                 </div>
-
-                <div class="skill-group">
-                    <h3><i class="fas fa-network-wired"></i> Machine Learning</h3>
-                    <div class="tags">
-                        <span>Supervised Learning</span>
-                        <span>NLP & Transformers</span>
-                        <span>Feature Engineering</span>
-                        <span>Deep Learning</span>
-                        <span>Model Tuning</span>
-                    </div>
+                <div class="skill-category">
+                    <h3>Machine Learning</h3>
+                    <ul>
+                        <li>NLP & Transformers</li>
+                        <li>Deep Learning</li>
+                        <li>Feature Engineering</li>
+                        <li>Model Evaluation</li>
+                    </ul>
                 </div>
-
-                <div class="skill-group">
-                    <h3><i class="fas fa-cogs"></i> MLOps & Production</h3>
-                    <div class="tags">
-                        <span>FastAPI</span>
-                        <span>MLflow</span>
-                        <span>Git / CI/CD</span>
-                        <span>Docker</span>
-                        <span>Deployment</span>
-                    </div>
+                <div class="skill-category">
+                    <h3>Production</h3>
+                    <ul>
+                        <li>FastAPI & MLOps</li>
+                        <li>Git & CI/CD</li>
+                        <li>MLflow & DVC</li>
+                        <li>Model Deployment</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="section-padding">
+    <section id="projects" class="section">
         <div class="container">
-            <div class="section-header">
-                <h2>Selected Projects</h2>
+            <div class="section-intro">
+                <span class="label">03 // Selected Work</span>
+                <h2>Building the Future</h2>
             </div>
-
-            <div class="projects-grid">
-                
-                <article class="project-item">
-                    <div class="project-thumb">
-                        <img src="assets/Invest-Wise.png" alt="InvestWise Dashboard" onerror="this.src='https://via.placeholder.com/800x450/f8fafc/cbd5e1?text=InvestWise'">
+            <div class="project-list">
+                <div class="project-row">
+                    <div class="project-img">
+                        <img src="assets/Invest-Wise.png" alt="InvestWise">
                     </div>
-                    <div class="project-details">
-                        <h3>InvestWise Recommendation System</h3>
-                        <p>An end-to-end AI mutual fund recommendation engine. Combines supervised/unsupervised learning with financial feature engineering to deliver personalized suggestions via a production API.</p>
-                        <div class="project-actions">
-                            <a href="https://github.com/vashishthraval6899/Mutual-Fund-Recommendation-System" target="_blank">GitHub</a>
+                    <div class="project-info">
+                        <h3>InvestWise: AI Mutual Fund Engine</h3>
+                        <p>Combining supervised and unsupervised learning to deliver personalized financial recommendations via a production-grade API. Designed for scalability and real-time accuracy.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/vashishthraval6899/Mutual-Fund-Recommendation-System" target="_blank">GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                             <a href="https://mutualfundrecommendationsystem.netlify.app/" target="_blank">Live Demo</a>
                         </div>
                     </div>
-                </article>
+                </div>
 
-                <article class="project-item">
-                    <div class="project-thumb">
-                        <img src="assets/Youtube-Sentiment-AI.png" alt="Sentiment AI" onerror="this.src='https://via.placeholder.com/800x450/f8fafc/cbd5e1?text=Sentiment+AI'">
+                <div class="project-row">
+                    <div class="project-img">
+                        <img src="assets/Youtube-Sentiment-AI.png" alt="Sentiment AI">
                     </div>
-                    <div class="project-details">
+                    <div class="project-info">
                         <h3>YouTube Sentiment Intelligence</h3>
-                        <p>Real-time sentiment platform transforming YouTube comments into insights. Built with MLflow (tracking), DVC (pipelines), Optuna (optimization), and FastAPI.</p>
-                        <div class="project-actions">
-                            <a href="https://github.com/vashishthraval6899/yt-comment-sentiment-analysis" target="_blank">GitHub</a>
+                        <p>A high-fidelity sentiment analysis platform utilizing MLflow and DVC for reproducible pipelines. Includes a Chrome extension for real-time inference.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/vashishthraval6899/yt-comment-sentiment-analysis" target="_blank">GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                         </div>
                     </div>
-                </article>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section-padding">
-        <div class="container narrow-container">
-            <div class="contact-card">
-                <h2>Let's Connect</h2>
-                <p>Always open to discussing data strategy, ML engineering, or new opportunities.</p>
-                <a href="mailto:vraval765@gmail.com" class="main-email">vraval765@gmail.com</a>
-                
-                <div class="footer-links">
-                    <a href="https://linkedin.com/in/vashishthraval" target="_blank">LinkedIn</a>
-                    <a href="https://github.com/vashishthraval6899" target="_blank">GitHub</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2025 Vashishth Raval. Designed with clarity.</p>
+    <footer id="contact">
+        <div class="container footer-content">
+            <div class="footer-left">
+                <h2>Let’s build something <br>meaningful together.</h2>
+                <a href="mailto:vraval765@gmail.com" class="email-link">vraval765@gmail.com</a>
+            </div>
+            <div class="footer-right">
+                <div class="footer-socials">
+                    <a href="https://linkedin.com/in/vashishthraval" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/vashishthraval6899" target="_blank">GitHub</a>
+                </div>
+                <p class="copyright">&copy; 2025 Vashishth Raval. Focused on impact.</p>
+            </div>
+        </div>
     </footer>
 
     <script src="script.js"></script>
