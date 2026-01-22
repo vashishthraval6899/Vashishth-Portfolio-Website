@@ -1,26 +1,26 @@
-// Toggle Mobile Menu
+// Mobile Menu Logic
+const hamburger = document.querySelector('.hamburger-menu');
+const mobileMenu = document.querySelector('.mobile-menu-overlay');
+const closeMenu = document.querySelector('.close-menu');
+const mobileLinks = document.querySelectorAll('.mobile-links a');
+
 function toggleMenu() {
-    const nav = document.querySelector('.nav-links');
-    nav.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
 }
 
-// Subtle Parallax effect for "Doodles"
-window.addEventListener('scroll', () => {
-    const scroll = window.pageYOffset;
-    const doodles = document.querySelectorAll('.doodle');
-    
-    doodles.forEach((doodle, index) => {
-        const speed = (index + 1) * 0.1;
-        doodle.style.transform = `translateY(${scroll * speed}px)`;
-    });
+if(hamburger) hamburger.addEventListener('click', toggleMenu);
+if(closeMenu) closeMenu.addEventListener('click', toggleMenu);
+
+mobileLinks.forEach(link => {
+    link.addEventListener('click', toggleMenu);
 });
 
-// Smooth Scroll for Navigation
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
+// Navbar Scroll Effect (Subtle border appearing)
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.style.borderBottomColor = "#cbd5e1"; // Darker border on scroll
+    } else {
+        navbar.style.borderBottomColor = "#e2e8f0"; // Light border at top
+    }
 });
