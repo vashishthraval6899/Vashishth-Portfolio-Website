@@ -1,35 +1,26 @@
-// Smooth Scroll for Navigation Links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-    });
+// Mobile Menu Logic
+const hamburger = document.querySelector('.hamburger-menu');
+const mobileMenu = document.querySelector('.mobile-menu-overlay');
+const closeMenu = document.querySelector('.close-menu');
+const mobileLinks = document.querySelectorAll('.mobile-links a');
+
+function toggleMenu() {
+    mobileMenu.classList.toggle('active');
+}
+
+if(hamburger) hamburger.addEventListener('click', toggleMenu);
+if(closeMenu) closeMenu.addEventListener('click', toggleMenu);
+
+mobileLinks.forEach(link => {
+    link.addEventListener('click', toggleMenu);
 });
 
-// Parallax Doodle Effect
-// Makes the space elements move slightly at different speeds during scroll
+// Navbar Scroll Effect (Subtle border appearing)
+const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
-    const scrollY = window.pageYOffset;
-    const doodles = document.querySelectorAll('.doodle');
-    
-    doodles.forEach((doodle, index) => {
-        // Assigning different speeds based on index
-        const speed = (index % 3 + 1) * 0.05;
-        doodle.style.transform = `translateY(${scrollY * speed}px)`;
-    });
-});
-
-// Navbar active state / shadow on scroll
-window.addEventListener('scroll', () => {
-    const nav = document.getElementById('navbar');
     if (window.scrollY > 50) {
-        nav.style.boxShadow = "0 10px 30px rgba(0,0,0,0.05)";
+        navbar.style.borderBottomColor = "#cbd5e1"; // Darker border on scroll
     } else {
-        nav.style.boxShadow = "none";
+        navbar.style.borderBottomColor = "#e2e8f0"; // Light border at top
     }
 });
