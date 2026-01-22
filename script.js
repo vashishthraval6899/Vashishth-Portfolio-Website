@@ -1,4 +1,4 @@
-// Mobile Menu Logic
+// Mobile menu
 const hamburger = document.querySelector('.hamburger-menu');
 const mobileMenu = document.querySelector('.mobile-menu-overlay');
 const closeMenu = document.querySelector('.close-menu');
@@ -8,19 +8,26 @@ function toggleMenu() {
     mobileMenu.classList.toggle('active');
 }
 
-if(hamburger) hamburger.addEventListener('click', toggleMenu);
-if(closeMenu) closeMenu.addEventListener('click', toggleMenu);
+hamburger?.addEventListener('click', toggleMenu);
+closeMenu?.addEventListener('click', toggleMenu);
+mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
 
-mobileLinks.forEach(link => {
-    link.addEventListener('click', toggleMenu);
-});
+// Active nav highlight
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-links a");
 
-// Navbar Scroll Effect (Subtle border appearing)
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.style.borderBottomColor = "#cbd5e1"; // Darker border on scroll
-    } else {
-        navbar.style.borderBottomColor = "#e2e8f0"; // Light border at top
-    }
+window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (scrollY >= sectionTop) current = section.id;
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${current}`) {
+            link.classList.add("active");
+        }
+    });
 });
