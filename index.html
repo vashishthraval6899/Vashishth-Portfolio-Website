@@ -3,250 +3,341 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Vashishth Raval - Data Scientist & Machine Learning Engineer specializing in ML pipelines, Fintech analytics, and scalable AI solutions">
-    <title>Vashishth Raval | Data Scientist & ML Engineer</title>
+    <title>Vashishth Raval | Data Scientist</title>
+    <meta name="description" content="Data Scientist & Machine Learning Engineer specializing in scalable AI solutions, Fintech analytics, and end-to-end ML pipelines.">
     
-    <!-- Fonts & Icons -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- CSS Files -->
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
 </head>
 <body>
     <!-- Navigation -->
-    <nav id="navbar">
-        <div class="container nav-container">
-            <a href="#hero" class="logo">VR<span>.</span></a>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-text">VR</span>
+                <span class="logo-dot">.</span>
+            </a>
             
-            <div class="nav-links">
-                <a href="#about" class="active">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact" class="nav-cta">Contact</a>
+            <div class="nav-menu">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link nav-cta">Contact</a>
             </div>
             
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
+            <button class="nav-toggle" aria-label="Toggle menu">
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+            </button>
         </div>
     </nav>
-    
+
     <!-- Mobile Menu -->
-    <div class="mobile-menu-overlay"></div>
     <div class="mobile-menu">
-        <div class="mobile-menu-close">
-            <i class="fas fa-times"></i>
+        <div class="mobile-menu-content">
+            <a href="#about" class="mobile-menu-link">About</a>
+            <a href="#experience" class="mobile-menu-link">Experience</a>
+            <a href="#projects" class="mobile-menu-link">Projects</a>
+            <a href="#contact" class="mobile-menu-link">Contact</a>
         </div>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
     </div>
-    
+
     <!-- Hero Section -->
-    <section id="hero">
-        <div class="container hero-container">
+    <section id="hero" class="section hero">
+        <div class="container">
             <div class="hero-content">
-                <div class="hero-tag">Data Scientist & ML Engineer</div>
-                <h1>Vashishth Raval</h1>
-                <p class="hero-desc">
-                    I translate complex data into actionable business strategies. Specializing in end-to-end Machine Learning pipelines, Fintech analytics, and scalable AI solutions that drive measurable impact.
+                <div class="hero-badge">Data Scientist / ML Engineer</div>
+                <h1 class="hero-title">Vashishth Raval</h1>
+                <p class="hero-description">
+                    Building scalable machine learning systems with clean architecture. 
+                    Specializing in end-to-end ML pipelines, Fintech analytics, and 
+                    production-ready AI solutions.
                 </p>
                 
-                <div class="hero-cta">
-                    <a href="Assets/Vashishth_Raval_Associate_Business_Analyst.pdf" target="_blank" class="btn btn-primary">
-                        <i class="fas fa-download"></i> Download CV
+                <div class="hero-actions">
+                    <a href="Assets/Vashishth_Raval_Associate_Business_Analyst.pdf" 
+                       class="btn btn-primary" 
+                       target="_blank">
+                        <i class="fas fa-download"></i>
+                        Download CV
                     </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        <i class="fas fa-paper-plane"></i> Contact Me
+                    <a href="#contact" class="btn btn-outline">
+                        <i class="fas fa-paper-plane"></i>
+                        Get in Touch
                     </a>
                 </div>
                 
                 <div class="hero-social">
-                    <a href="https://linkedin.com/in/vashishthraval" target="_blank" aria-label="LinkedIn">
+                    <a href="https://linkedin.com/in/vashishthraval" 
+                       class="social-link" 
+                       target="_blank"
+                       aria-label="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="https://github.com/vashishthraval6899" target="_blank" aria-label="GitHub">
+                    <a href="https://github.com/vashishthraval6899" 
+                       class="social-link" 
+                       target="_blank"
+                       aria-label="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="mailto:vraval765@gmail.com" aria-label="Email">
+                    <a href="mailto:vraval765@gmail.com" 
+                       class="social-link" 
+                       aria-label="Email">
                         <i class="fas fa-envelope"></i>
                     </a>
                 </div>
             </div>
             
             <div class="hero-visual">
-                <div class="profile-image-container">
-                    <img src="assets/Profile-Photo.jpeg" alt="Vashishth Raval - Data Scientist" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=774&q=80'">
-                </div>
-                
-                <div class="floating-element">
-                    <i class="fas fa-chart-line"></i>
-                    <div>
-                        <div class="stat-value">25+</div>
-                        <div class="stat-label">Projects</div>
+                <div class="profile-container">
+                    <div class="profile-image-wrapper">
+                        <img src="assets/Profile-Photo.jpeg" 
+                             alt="Vashishth Raval" 
+                             class="profile-image"
+                             onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'">
                     </div>
-                </div>
-                
-                <div class="floating-element">
-                    <i class="fas fa-cogs"></i>
-                    <div>
-                        <div class="stat-value">2.5+</div>
-                        <div class="stat-label">Years Experience</div>
-                    </div>
+                    <div class="profile-decoration"></div>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- About Section -->
-    <section id="about">
+    <section id="about" class="section">
         <div class="container">
-            <h2>About Me</h2>
+            <div class="section-header">
+                <span class="section-label">Background</span>
+                <h2 class="section-title">About Me</h2>
+            </div>
             
-            <div class="about-container">
-                <div class="about-text">
-                    <p>
-                        I approach Data Science with an engineer's precision and a strategist's vision. With a strong foundation in <span class="highlight">Python, Statistics, and SQL</span>, I focus on building systems that are reproducible, scalable, and aligned with business objectives.
+            <div class="about-grid">
+                <div class="about-content">
+                    <p class="about-text">
+                        I approach data science with an engineer's mindset—focusing on reproducibility, 
+                        scalability, and clean architecture. My work bridges statistical rigor with 
+                        practical business impact.
                     </p>
                     
-                    <p>
-                        My experience in <span class="highlight">Fintech analytics</span> has honed my ability to translate complex data into clear, actionable insights. I believe in rigorous methodology, clean code, and solutions that stand up to real-world testing.
+                    <p class="about-text">
+                        With <strong>2.5+ years in Fintech analytics</strong>, I've developed a keen 
+                        understanding of how machine learning drives business value in regulated 
+                        environments. Currently pursuing my Master's in Data Science at DA-IICT.
                     </p>
                     
-                    <p>
-                        Currently pursuing my Master's in Data Science at DA-IICT, I'm constantly exploring new techniques in <span class="highlight">MLOps, NLP, and scalable AI architectures</span>.
-                    </p>
-                    
-                    <div class="about-stats">
-                        <div class="stat-card">
-                            <i class="fas fa-briefcase"></i>
-                            <h3>2.5+</h3>
-                            <p>Years Experience</p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h3>Analytical Precision</h3>
+                                <p>Rigorous statistical methods & hypothesis testing</p>
+                            </div>
                         </div>
                         
-                        <div class="stat-card">
-                            <i class="fas fa-chart-bar"></i>
-                            <h3>25+</h3>
-                            <p>Projects Completed</p>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h3>Clean Engineering</h3>
+                                <p>Production-ready code with MLOps best practices</p>
+                            </div>
                         </div>
                         
-                        <div class="stat-card">
-                            <i class="fas fa-graduation-cap"></i>
-                            <h3>M.Sc.</h3>
-                            <p>Data Science</p>
-                        </div>
-                        
-                        <div class="stat-card">
-                            <i class="fas fa-code-branch"></i>
-                            <h3>10+</h3>
-                            <p>Technologies</p>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h3>Business Impact</h3>
+                                <p>Translating models into measurable outcomes</p>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="about-visual">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Data Science Visualization">
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">2.5+</div>
+                        <div class="stat-label">Years Experience</div>
+                        <div class="stat-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label">Projects Completed</div>
+                        <div class="stat-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number">M.Sc.</div>
+                        <div class="stat-label">Data Science</div>
+                        <div class="stat-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Technologies</div>
+                        <div class="stat-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- Skills Section -->
-    <section id="skills">
+    <section id="experience" class="section bg-light">
         <div class="container">
-            <h2>Technical Toolkit</h2>
+            <div class="section-header">
+                <span class="section-label">Expertise</span>
+                <h2 class="section-title">Technical Stack</h2>
+            </div>
             
-            <div class="skills-container">
+            <div class="skills-grid">
                 <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> Core & Analysis</h3>
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>Data & Analytics</h3>
+                    </div>
                     <div class="skill-tags">
                         <span class="skill-tag">Python</span>
                         <span class="skill-tag">SQL</span>
                         <span class="skill-tag">Statistics</span>
-                        <span class="skill-tag">Hypothesis Testing</span>
                         <span class="skill-tag">Pandas / NumPy</span>
                         <span class="skill-tag">Data Visualization</span>
-                        <span class="skill-tag">Excel / Sheets</span>
                         <span class="skill-tag">A/B Testing</span>
                     </div>
                 </div>
                 
                 <div class="skill-category">
-                    <h3><i class="fas fa-network-wired"></i> Machine Learning</h3>
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Machine Learning</h3>
+                    </div>
                     <div class="skill-tags">
                         <span class="skill-tag">Supervised Learning</span>
-                        <span class="skill-tag">NLP & Transformers</span>
+                        <span class="skill-tag">NLP</span>
                         <span class="skill-tag">Feature Engineering</span>
-                        <span class="skill-tag">Deep Learning</span>
-                        <span class="skill-tag">Model Tuning</span>
                         <span class="skill-tag">Scikit-learn</span>
-                        <span class="skill-tag">TensorFlow / PyTorch</span>
-                        <span class="skill-tag">Time Series Analysis</span>
+                        <span class="skill-tag">Model Evaluation</span>
+                        <span class="skill-tag">Time Series</span>
                     </div>
                 </div>
                 
                 <div class="skill-category">
-                    <h3><i class="fas fa-cogs"></i> MLOps & Production</h3>
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3>MLOps & Deployment</h3>
+                    </div>
                     <div class="skill-tags">
                         <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">Docker</span>
                         <span class="skill-tag">MLflow</span>
                         <span class="skill-tag">Git / CI/CD</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Cloud Deployment</span>
-                        <span class="skill-tag">AWS / GCP</span>
-                        <span class="skill-tag">Data Pipelines</span>
+                        <span class="skill-tag">Cloud Platforms</span>
                         <span class="skill-tag">Monitoring</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- Projects Section -->
-    <section id="projects">
+    <section id="projects" class="section">
         <div class="container">
-            <h2>Selected Projects</h2>
+            <div class="section-header">
+                <span class="section-label">Work</span>
+                <h2 class="section-title">Featured Projects</h2>
+            </div>
             
-            <div class="projects-container">
-                <div class="project-card">
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <article class="project-card">
                     <div class="project-image">
-                        <img src="assets/Invest-Wise.png" alt="InvestWise Dashboard - Mutual Fund Recommendation System" onerror="this.src='https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80'">
+                        <img src="assets/Invest-Wise.png" 
+                             alt="InvestWise Recommendation System"
+                             onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                        <div class="project-overlay">
+                            <span class="project-label">Machine Learning</span>
+                        </div>
                     </div>
                     
                     <div class="project-content">
-                        <h3>InvestWise Recommendation System</h3>
-                        <p>An end-to-end AI mutual fund recommendation engine that combines supervised/unsupervised learning with financial feature engineering to deliver personalized suggestions via a production API.</p>
+                        <h3 class="project-title">InvestWise Recommendation System</h3>
+                        <p class="project-description">
+                            End-to-end AI mutual fund recommendation engine combining supervised/unsupervised 
+                            learning with financial feature engineering. Production API delivers personalized 
+                            investment suggestions.
+                        </p>
                         
                         <div class="project-tech">
                             <span>Python</span>
-                            <span>Scikit-learn</span>
                             <span>FastAPI</span>
+                            <span>Scikit-learn</span>
                             <span>MLOps</span>
                         </div>
                         
                         <div class="project-links">
-                            <a href="https://github.com/vashishthraval6899/Mutual-Fund-Recommendation-System" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> GitHub
+                            <a href="https://github.com/vashishthraval6899/Mutual-Fund-Recommendation-System" 
+                               class="project-link"
+                               target="_blank">
+                                <i class="fab fa-github"></i>
+                                View Code
                             </a>
-                            <a href="https://mutualfundrecommendationsystem.netlify.app/" target="_blank" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            <a href="https://mutualfundrecommendationsystem.netlify.app/" 
+                               class="project-link"
+                               target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                                Live Demo
                             </a>
                         </div>
                     </div>
-                </div>
+                </article>
                 
-                <div class="project-card">
+                <!-- Project 2 -->
+                <article class="project-card">
                     <div class="project-image">
-                        <img src="assets/Youtube-Sentiment-AI.png" alt="YouTube Sentiment Intelligence - NLP Analysis Platform" onerror="this.src='https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1169&q=80'">
+                        <img src="assets/Youtube-Sentiment-AI.png" 
+                             alt="YouTube Sentiment Intelligence"
+                             onerror="this.src='https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                        <div class="project-overlay">
+                            <span class="project-label">NLP</span>
+                        </div>
                     </div>
                     
                     <div class="project-content">
-                        <h3>YouTube Sentiment Intelligence</h3>
-                        <p>Real-time sentiment analysis platform transforming YouTube comments into actionable insights. Built with MLflow (tracking), DVC (pipelines), Optuna (optimization), and FastAPI for production deployment.</p>
+                        <h3 class="project-title">YouTube Sentiment Intelligence</h3>
+                        <p class="project-description">
+                            Real-time sentiment analysis platform transforming YouTube comments into 
+                            actionable insights. Built with MLflow for tracking, DVC for pipelines, 
+                            and FastAPI for deployment.
+                        </p>
                         
                         <div class="project-tech">
                             <span>NLP</span>
@@ -256,21 +347,33 @@
                         </div>
                         
                         <div class="project-links">
-                            <a href="https://github.com/vashishthraval6899/yt-comment-sentiment-analysis" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> GitHub
+                            <a href="https://github.com/vashishthraval6899/yt-comment-sentiment-analysis" 
+                               class="project-link"
+                               target="_blank">
+                                <i class="fab fa-github"></i>
+                                View Code
                             </a>
                         </div>
                     </div>
-                </div>
+                </article>
                 
-                <div class="project-card">
+                <!-- Project 3 -->
+                <article class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Financial Risk Analytics - Credit Risk Assessment">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Financial Risk Analytics">
+                        <div class="project-overlay">
+                            <span class="project-label">Analytics</span>
+                        </div>
                     </div>
                     
                     <div class="project-content">
-                        <h3>Financial Risk Analytics</h3>
-                        <p>Built predictive models for credit risk assessment using ensemble methods and feature engineering. Implemented model monitoring and A/B testing framework for production deployment.</p>
+                        <h3 class="project-title">Financial Risk Analytics</h3>
+                        <p class="project-description">
+                            Predictive modeling for credit risk assessment using ensemble methods and 
+                            feature engineering. Includes model monitoring and A/B testing framework 
+                            for production deployment.
+                        </p>
                         
                         <div class="project-tech">
                             <span>XGBoost</span>
@@ -281,7 +384,49 @@
                         
                         <div class="project-links">
                             <a href="#" class="project-link">
-                                <i class="fab fa-github"></i> GitHub (Private)
+                                <i class="fas fa-lock"></i>
+                                Private Repository
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-light">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-content">
+                    <div class="section-header">
+                        <span class="section-label">Connect</span>
+                        <h2 class="section-title">Let's Discuss</h2>
+                    </div>
+                    
+                    <p class="contact-description">
+                        I'm always interested in discussing data science, machine learning engineering, 
+                        and new opportunities. Reach out for collaborations or just to connect.
+                    </p>
+                    
+                    <div class="contact-info">
+                        <a href="mailto:vraval765@gmail.com" class="contact-email">
+                            <i class="fas fa-envelope"></i>
+                            vraval765@gmail.com
+                        </a>
+                        
+                        <div class="contact-social">
+                            <a href="https://linkedin.com/in/vashishthraval" 
+                               class="contact-social-link"
+                               target="_blank">
+                                <i class="fab fa-linkedin-in"></i>
+                                LinkedIn
+                            </a>
+                            <a href="https://github.com/vashishthraval6899" 
+                               class="contact-social-link"
+                               target="_blank">
+                                <i class="fab fa-github"></i>
+                                GitHub
                             </a>
                         </div>
                     </div>
@@ -289,40 +434,28 @@
             </div>
         </div>
     </section>
-    
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container contact-container">
-            <div class="contact-card">
-                <h2>Let's Connect</h2>
-                <p>I'm always open to discussing data strategy, ML engineering, or new opportunities. Feel free to reach out!</p>
-                
-                <a href="mailto:vraval765@gmail.com" class="contact-email">
-                    vraval765@gmail.com
-                </a>
-                
-                <div class="contact-social">
-                    <a href="https://linkedin.com/in/vashishthraval" target="_blank">
-                        <i class="fab fa-linkedin-in"></i> LinkedIn
-                    </a>
-                    <a href="https://github.com/vashishthraval6899" target="_blank">
-                        <i class="fab fa-github"></i> GitHub
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
+
     <!-- Footer -->
-    <footer>
-        <div class="container footer-container">
-            <div class="footer-logo">Vashishth Raval<span>.</span></div>
-            <p class="footer-tagline">Data Scientist & ML Engineer | Translating complex data into clear business strategies</p>
-            <p class="footer-copyright">&copy; 2025 Vashishth Raval. All rights reserved.</p>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">VR</span>
+                    <span class="logo-dot">.</span>
+                </div>
+                
+                <p class="footer-tagline">
+                    Data Scientist & ML Engineer
+                </p>
+                
+                <p class="footer-copyright">
+                    &copy; <span id="current-year">2025</span> Vashishth Raval
+                </p>
+            </div>
         </div>
     </footer>
 
-    <!-- JavaScript File -->
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
