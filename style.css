@@ -475,103 +475,149 @@ strong {
 }
 
 /* ===== ABOUT SECTION ===== */
+
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-2xl);
-    align-items: start;
+    align-items: flex-start;
+}
+
+/* -------------------------
+   ABOUT TEXT (LEFT)
+-------------------------- */
+
+.about-content {
+    max-width: 520px; /* 🔥 limits line length for readability */
 }
 
 .about-text {
-    margin-bottom: var(--space-lg);
+    font-size: 0.95rem;      /* 🔥 slightly reduced */
+    line-height: 1.7;        /* 🔥 breathing space */
+    color: var(--color-text);
+    margin-bottom: var(--space-md);
 }
 
 .about-text:last-child {
     margin-bottom: 0;
 }
 
+/* -------------------------
+   HIGHLIGHTS
+-------------------------- */
+
 .about-highlights {
     display: flex;
     flex-direction: column;
-    gap: var(--space-lg);
+    gap: var(--space-md);     /* 🔥 tighter than before */
     margin-top: var(--space-xl);
 }
 
 .highlight-item {
     display: flex;
-    gap: var(--space-md);
+    gap: var(--space-sm);     /* 🔥 reduced gap */
     align-items: flex-start;
 }
 
 .highlight-icon {
     flex-shrink: 0;
-    width: 48px;
-    height: 48px;
+    width: 40px;              /* 🔥 smaller icon box */
+    height: 40px;
     border-radius: var(--radius-md);
-    background-color: rgba(37, 99, 235, 0.1);
+    background-color: rgba(37, 99, 235, 0.08); /* 🔥 softer */
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--color-primary);
-    font-size: 1.25rem;
+    font-size: 1rem;          /* 🔥 reduced */
 }
 
 .highlight-content h3 {
-    font-size: 1.125rem;
-    margin-bottom: 0.25rem;
+    font-size: 0.95rem;       /* 🔥 reduced */
+    font-weight: 600;
+    margin-bottom: 0.15rem;
     color: var(--color-text);
 }
 
 .highlight-content p {
-    font-size: 0.95rem;
+    font-size: 0.8rem;        /* 🔥 reduced */
+    line-height: 1.5;
     color: var(--color-text-light);
     margin: 0;
 }
 
-/* Stats */
+/* -------------------------
+   STATS (RIGHT)
+-------------------------- */
+
 .about-stats {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-md);
 }
 
+/* Stat Card */
+
 .stat-card {
     background-color: white;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
-    padding: var(--space-lg);
-    text-align: center;
+    padding: var(--space-md);  /* 🔥 reduced padding */
     position: relative;
     transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
 .stat-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md); /* 🔥 lighter hover */
 }
+
+/* Stat Number (KEY FIX) */
 
 .stat-number {
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: 1.25rem;       /* 🔥 BIG FIX: reduced from 2.5rem */
+    font-weight: 600;
     color: var(--color-text);
-    margin-bottom: 0.25rem;
-    line-height: 1;
+    margin-bottom: 0.2rem;
+    line-height: 1.2;
 }
 
+/* Stat Label */
+
 .stat-label {
-    font-size: 0.95rem;
+    font-size: 0.75rem;       /* 🔥 smaller & subtle */
     color: var(--color-text-light);
-    margin-bottom: var(--space-sm);
 }
+
+/* Stat Icon */
 
 .stat-icon {
     position: absolute;
-    top: var(--space-md);
-    right: var(--space-md);
+    top: var(--space-sm);
+    right: var(--space-sm);
     color: var(--color-primary);
-    opacity: 0.2;
-    font-size: 1.5rem;
+    opacity: 0.15;            /* 🔥 less visual noise */
+    font-size: 1.1rem;        /* 🔥 reduced */
 }
+
+/* -------------------------
+   RESPONSIVE (IMPORTANT)
+-------------------------- */
+
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-stats {
+        margin-top: var(--space-xl);
+    }
+
+    .about-content {
+        max-width: 100%;
+    }
+}
+
 
 /* ===== SKILLS SECTION ===== */
 .skills-grid {
