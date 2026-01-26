@@ -21,6 +21,29 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
 </head>
 <body>
+    <!-- Hand-drawn Space Elements -->
+    <div class="space-drawing">
+        <!-- Constellations -->
+        <div class="constellation c1"></div>
+        <div class="constellation c2"></div>
+        <div class="constellation c3"></div>
+        
+        <!-- Orbit Lines -->
+        <div class="orbit o1"></div>
+        <div class="orbit o2"></div>
+        <div class="orbit o3"></div>
+        
+        <!-- Shooting Stars -->
+        <div class="shooting-star s1"></div>
+        <div class="shooting-star s2"></div>
+        
+        <!-- Satellite -->
+        <div class="satellite"></div>
+        
+        <!-- Asteroid -->
+        <div class="asteroid"></div>
+    </div>
+    
     <!-- Navigation -->
     <nav class="nav">
         <div class="container nav-container">
@@ -366,7 +389,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section bg-light">
+    <section id="contact" class="section">
         <div class="container">
             <div class="section-header">
                 <span class="section-label">Connect</span>
@@ -375,40 +398,33 @@
             </div>
             
             <div class="contact-container">
-                <div class="contact-card">
-                    <div class="contact-header">
-                        <i class="fas fa-envelope contact-icon"></i>
+                <div class="contact-content">
+                    <div class="contact-email-section">
+                        <div class="contact-icon-wrapper">
+                            <i class="fas fa-envelope contact-icon"></i>
+                        </div>
                         <h3>Email</h3>
+                        <a href="mailto:vraval765@gmail.com" class="contact-email">vraval765@gmail.com</a>
+                        <p class="contact-note">I typically respond within 24 hours</p>
                     </div>
-                    <a href="mailto:vraval765@gmail.com" class="contact-email">vraval765@gmail.com</a>
-                </div>
-                
-                <div class="contact-social-container">
-                    <h3>Connect Online</h3>
-                    <div class="contact-social-grid">
-                        <a href="https://linkedin.com/in/vashishthraval" 
-                           class="contact-social-card"
-                           target="_blank">
-                            <div class="social-card-icon">
+                    
+                    <div class="contact-social-section">
+                        <h3>Connect Online</h3>
+                        <div class="contact-social-links">
+                            <a href="https://linkedin.com/in/vashishthraval" 
+                               class="contact-social-link"
+                               target="_blank">
                                 <i class="fab fa-linkedin-in"></i>
-                            </div>
-                            <div class="social-card-content">
-                                <span class="social-card-title">LinkedIn</span>
-                                <span class="social-card-subtitle">Professional Profile</span>
-                            </div>
-                        </a>
-                        
-                        <a href="https://github.com/vashishthraval6899" 
-                           class="contact-social-card"
-                           target="_blank">
-                            <div class="social-card-icon">
+                                <span>LinkedIn</span>
+                            </a>
+                            
+                            <a href="https://github.com/vashishthraval6899" 
+                               class="contact-social-link"
+                               target="_blank">
                                 <i class="fab fa-github"></i>
-                            </div>
-                            <div class="social-card-content">
-                                <span class="social-card-title">GitHub</span>
-                                <span class="social-card-subtitle">Code & Projects</span>
-                            </div>
-                        </a>
+                                <span>GitHub</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -430,37 +446,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- Cosmic Theme Elements -->
-    <svg style="display: none;">
-        <defs>
-            <!-- Star shapes -->
-            <symbol id="star-5" viewBox="0 0 24 24">
-                <path d="M12 2 L14.5 8.5 L21.5 9.5 L16.5 14.5 L18 21.5 L12 17.5 L6 21.5 L7.5 14.5 L2.5 9.5 L9.5 8.5 Z" 
-                      fill="none" 
-                      stroke="#f0c674" 
-                      stroke-width="1" 
-                      stroke-linecap="round" 
-                      stroke-linejoin="round"/>
-            </symbol>
-            <symbol id="star-6" viewBox="0 0 24 24">
-                <polygon points="12,2 14.5,8.5 21.5,9.5 16.5,14.5 18,21.5 12,17.5 6,21.5 7.5,14.5 2.5,9.5 9.5,8.5" 
-                         fill="none" 
-                         stroke="#ffdd59" 
-                         stroke-width="1" 
-                         stroke-linecap="round" 
-                         stroke-linejoin="round"/>
-            </symbol>
-            <!-- Planet outline -->
-            <symbol id="planet-ring" viewBox="0 0 40 40">
-                <circle cx="20" cy="20" r="15" 
-                        fill="none" 
-                        stroke="#a29bfe" 
-                        stroke-width="2" 
-                        stroke-dasharray="3,3"/>
-            </symbol>
-        </defs>
-    </svg>
 
     <!-- JavaScript -->
     <script src="script.js"></script>
