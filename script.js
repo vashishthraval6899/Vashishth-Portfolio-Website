@@ -16,6 +16,7 @@ class Portfolio {
         this.initContactCards();
         this.initConsoleGreeting();
         this.fixMobileHeaderSpacing();
+        this.initCosmicTheme();
     }
 
     // Fixed Mobile Menu with better header spacing
@@ -312,6 +313,109 @@ class Portfolio {
         console.log('%c👋 Hello! Thanks for checking out my portfolio.', styles);
         console.log('%cBuilt with clean, minimalist design for Data Science professionals.', 'color: #6b7280; font-size: 12px;');
         console.log('%cFeel free to explore the code or reach out to connect!', 'color: #9ca3af; font-size: 11px;');
+    }
+
+    // Cosmic Theme - Add hand-drawn elements
+    initCosmicTheme() {
+        if (document.body.classList.contains('touch-device')) {
+            // Reduce animations on touch devices for performance
+            return;
+        }
+        
+        const cosmicContainer = document.createElement('div');
+        cosmicContainer.className = 'cosmic-elements';
+        cosmicContainer.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        `;
+        document.body.appendChild(cosmicContainer);
+        
+        // Create stars
+        for (let i = 0; i < 15; i++) {
+            const star = document.createElement('div');
+            star.className = `star ${Math.random() > 0.5 ? 'small' : 'medium'}`;
+            star.style.cssText = `
+                position: absolute;
+                top: ${Math.random() * 100}%;
+                left: ${Math.random() * 100}%;
+                animation: twinkle ${3 + Math.random() * 4}s ease-in-out infinite;
+                animation-delay: ${Math.random() * 5}s;
+            `;
+            cosmicContainer.appendChild(star);
+        }
+        
+        // Create a sun
+        const sun = document.createElement('div');
+        sun.className = 'sun';
+        sun.style.cssText = `
+            position: absolute;
+            top: 15%;
+            right: 10%;
+            animation: float 8s ease-in-out infinite;
+        `;
+        cosmicContainer.appendChild(sun);
+        
+        // Create planets
+        const planets = [
+            { size: 'small', color: '#a29bfe', top: '30%', left: '5%' },
+            { size: 'medium', color: '#fd79a8', top: '65%', left: '15%' },
+            { size: 'large', color: '#55efc4', top: '25%', left: '85%' },
+        ];
+        
+        planets.forEach(planet => {
+            const planetEl = document.createElement('div');
+            planetEl.className = `planet ${planet.size}`;
+            planetEl.style.cssText = `
+                position: absolute;
+                top: ${planet.top};
+                left: ${planet.left};
+                animation: float ${10 + Math.random() * 10}s ease-in-out infinite;
+                animation-delay: ${Math.random() * 5}s;
+            `;
+            cosmicContainer.appendChild(planetEl);
+        });
+        
+        // Create a spaceship
+        const spaceship = document.createElement('div');
+        spaceship.className = 'spaceship';
+        spaceship.style.cssText = `
+            position: absolute;
+            top: 10%;
+            left: 20%;
+            animation: float 6s ease-in-out infinite;
+            animation-delay: 2s;
+        `;
+        cosmicContainer.appendChild(spaceship);
+        
+        // Create occasional meteors
+        const createMeteor = () => {
+            const meteor = document.createElement('div');
+            meteor.className = 'meteor';
+            meteor.style.cssText = `
+                position: absolute;
+                top: -50px;
+                left: ${Math.random() * 100}%;
+                animation: fall ${2 + Math.random() * 3}s linear;
+            `;
+            cosmicContainer.appendChild(meteor);
+            
+            setTimeout(() => {
+                meteor.remove();
+            }, 5000);
+        };
+        
+        // Create meteors at intervals
+        setInterval(createMeteor, 8000);
+        
+        // Initial meteors
+        setTimeout(createMeteor, 1000);
+        setTimeout(createMeteor, 4000);
     }
 }
 
