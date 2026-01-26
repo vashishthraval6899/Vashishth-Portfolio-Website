@@ -1,4 +1,4 @@
-// Portfolio JavaScript - Fixed Issues
+// Portfolio JavaScript - Minimal Implementation
 
 class Portfolio {
     constructor() {
@@ -13,13 +13,11 @@ class Portfolio {
         this.initCurrentYear();
         this.initProjectCards();
         this.initImageLoading();
-        this.initContactCards();
-        this.initConsoleGreeting();
         this.fixMobileHeaderSpacing();
-        this.initCosmicTheme();
+        this.initConsoleGreeting();
     }
 
-    // Fixed Mobile Menu with better header spacing
+    // Mobile Menu
     initMobileMenu() {
         const navToggle = document.querySelector('.nav-toggle');
         const mobileMenu = document.querySelector('.mobile-menu');
@@ -36,11 +34,6 @@ class Portfolio {
             
             // Prevent body scroll when menu is open
             document.body.style.overflow = isOpening ? 'hidden' : '';
-            
-            // Add padding to header when menu is open on mobile
-            if (window.innerWidth <= 768) {
-                header.style.paddingBottom = isOpening ? '10px' : '';
-            }
         };
 
         navToggle.addEventListener('click', (e) => {
@@ -54,7 +47,6 @@ class Portfolio {
                 mobileMenu.classList.remove('active');
                 navToggle.classList.remove('active');
                 document.body.style.overflow = '';
-                header.style.paddingBottom = '';
             });
         });
 
@@ -92,7 +84,7 @@ class Portfolio {
                 // Account for fixed header height
                 const headerHeight = document.querySelector('.nav').offsetHeight;
                 const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                const offsetPosition = targetPosition - headerHeight - 10; // Extra 10px padding
+                const offsetPosition = targetPosition - headerHeight - 10;
                 
                 window.scrollTo({
                     top: offsetPosition,
@@ -108,8 +100,6 @@ class Portfolio {
     // Scroll Effects with fixed header
     initScrollEffects() {
         const nav = document.querySelector('.nav');
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-link');
         
         if (!nav) return;
         
@@ -120,27 +110,6 @@ class Portfolio {
             } else {
                 nav.style.boxShadow = 'none';
             }
-            
-            // Update active nav link
-            let current = '';
-            const scrollPosition = window.scrollY + 100; // Offset for better detection
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                const linkHref = link.getAttribute('href');
-                if (linkHref === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
         };
         
         // Debounce scroll events for performance
@@ -168,7 +137,7 @@ class Portfolio {
         
         projectCards.forEach(card => {
             card.addEventListener('mouseenter', () => {
-                if (window.innerWidth > 768) { // Only on desktop
+                if (window.innerWidth > 768) {
                     const links = card.querySelectorAll('.project-link');
                     links.forEach(link => {
                         link.style.transform = 'translateX(4px)';
@@ -181,34 +150,6 @@ class Portfolio {
                 links.forEach(link => {
                     link.style.transform = 'translateX(0)';
                 });
-            });
-            
-            // Touch support for mobile
-            card.addEventListener('touchstart', () => {
-                card.classList.add('touch-active');
-            }, { passive: true });
-            
-            card.addEventListener('touchend', () => {
-                setTimeout(() => {
-                    card.classList.remove('touch-active');
-                }, 150);
-            }, { passive: true });
-        });
-    }
-
-    // Contact Card Interactions
-    initContactCards() {
-        const contactCards = document.querySelectorAll('.contact-card, .contact-social-card');
-        
-        contactCards.forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                if (window.innerWidth > 768) {
-                    card.style.zIndex = '1';
-                }
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.zIndex = '';
             });
         });
     }
@@ -244,7 +185,7 @@ class Portfolio {
             resizeTimeout = setTimeout(updateHeaderSpacing, 100);
         });
         
-        // Update after images load (profile picture might affect header height)
+        // Update after images load
         window.addEventListener('load', updateHeaderSpacing);
     }
 
@@ -252,50 +193,11 @@ class Portfolio {
     initImageLoading() {
         const images = document.querySelectorAll('img');
         
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        
-                        // Handle lazy loading
-                        if (img.dataset.src) {
-                            img.src = img.dataset.src;
-                        }
-                        
-                        img.classList.add('loaded');
-                        observer.unobserve(img);
-                    }
-                });
-            }, {
-                rootMargin: '50px 0px',
-                threshold: 0.1
-            });
-            
-            images.forEach(img => {
-                if (!img.complete) {
-                    img.classList.add('loading');
-                    imageObserver.observe(img);
-                } else {
-                    img.classList.add('loaded');
-                }
-            });
-        } else {
-            // Fallback for older browsers
-            images.forEach(img => {
-                if (img.dataset.src) {
-                    img.src = img.dataset.src;
-                }
-                img.classList.add('loaded');
-            });
-        }
-        
         // Error handling for broken images
         document.addEventListener('error', (e) => {
             if (e.target.tagName === 'IMG') {
                 console.warn(`Image failed to load: ${e.target.src}`);
                 e.target.classList.add('error');
-                e.target.classList.remove('loading');
             }
         }, true);
     }
@@ -311,111 +213,7 @@ class Portfolio {
         ].join(';');
         
         console.log('%c👋 Hello! Thanks for checking out my portfolio.', styles);
-        console.log('%cBuilt with clean, minimalist design for Data Science professionals.', 'color: #6b7280; font-size: 12px;');
-        console.log('%cFeel free to explore the code or reach out to connect!', 'color: #9ca3af; font-size: 11px;');
-    }
-
-    // Cosmic Theme - Add hand-drawn elements
-    initCosmicTheme() {
-        if (document.body.classList.contains('touch-device')) {
-            // Reduce animations on touch devices for performance
-            return;
-        }
-        
-        const cosmicContainer = document.createElement('div');
-        cosmicContainer.className = 'cosmic-elements';
-        cosmicContainer.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        `;
-        document.body.appendChild(cosmicContainer);
-        
-        // Create stars
-        for (let i = 0; i < 15; i++) {
-            const star = document.createElement('div');
-            star.className = `star ${Math.random() > 0.5 ? 'small' : 'medium'}`;
-            star.style.cssText = `
-                position: absolute;
-                top: ${Math.random() * 100}%;
-                left: ${Math.random() * 100}%;
-                animation: twinkle ${3 + Math.random() * 4}s ease-in-out infinite;
-                animation-delay: ${Math.random() * 5}s;
-            `;
-            cosmicContainer.appendChild(star);
-        }
-        
-        // Create a sun
-        const sun = document.createElement('div');
-        sun.className = 'sun';
-        sun.style.cssText = `
-            position: absolute;
-            top: 15%;
-            right: 10%;
-            animation: float 8s ease-in-out infinite;
-        `;
-        cosmicContainer.appendChild(sun);
-        
-        // Create planets
-        const planets = [
-            { size: 'small', color: '#a29bfe', top: '30%', left: '5%' },
-            { size: 'medium', color: '#fd79a8', top: '65%', left: '15%' },
-            { size: 'large', color: '#55efc4', top: '25%', left: '85%' },
-        ];
-        
-        planets.forEach(planet => {
-            const planetEl = document.createElement('div');
-            planetEl.className = `planet ${planet.size}`;
-            planetEl.style.cssText = `
-                position: absolute;
-                top: ${planet.top};
-                left: ${planet.left};
-                animation: float ${10 + Math.random() * 10}s ease-in-out infinite;
-                animation-delay: ${Math.random() * 5}s;
-            `;
-            cosmicContainer.appendChild(planetEl);
-        });
-        
-        // Create a spaceship
-        const spaceship = document.createElement('div');
-        spaceship.className = 'spaceship';
-        spaceship.style.cssText = `
-            position: absolute;
-            top: 10%;
-            left: 20%;
-            animation: float 6s ease-in-out infinite;
-            animation-delay: 2s;
-        `;
-        cosmicContainer.appendChild(spaceship);
-        
-        // Create occasional meteors
-        const createMeteor = () => {
-            const meteor = document.createElement('div');
-            meteor.className = 'meteor';
-            meteor.style.cssText = `
-                position: absolute;
-                top: -50px;
-                left: ${Math.random() * 100}%;
-                animation: fall ${2 + Math.random() * 3}s linear;
-            `;
-            cosmicContainer.appendChild(meteor);
-            
-            setTimeout(() => {
-                meteor.remove();
-            }, 5000);
-        };
-        
-        // Create meteors at intervals
-        setInterval(createMeteor, 8000);
-        
-        // Initial meteors
-        setTimeout(createMeteor, 1000);
-        setTimeout(createMeteor, 4000);
+        console.log('%cClean design, hand-drawn space theme.', 'color: #6b7280; font-size: 12px;');
     }
 }
 
@@ -424,13 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add loading styles
     const style = document.createElement('style');
     style.textContent = `
-        img.loading {
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
         img.loaded {
-            opacity: 1;
             animation: fadeIn 0.5s ease;
         }
         
@@ -439,20 +231,9 @@ document.addEventListener('DOMContentLoaded', () => {
             filter: grayscale(1);
         }
         
-        .project-card.touch-active {
-            transform: scale(0.98);
-            transition: transform 0.2s ease;
-        }
-        
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* Ensure mobile menu doesn't cause horizontal scroll */
-        .mobile-menu {
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         
         /* Fix for iOS Safari 100vh issue */
@@ -468,19 +249,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const portfolio = new Portfolio();
 });
 
-// Handle page visibility changes
-document.addEventListener('visibilitychange', () => {
-    if (!document.hidden) {
-        console.log('Portfolio is now visible');
-    }
-});
-
 // Handle window resize with debounce
 let resizeTimeout;
 window.addEventListener('resize', () => {
     clearTimeout(resizeTimeout);
     resizeTimeout = setTimeout(() => {
-        // Recalculate any layout-dependent values if needed
         const header = document.querySelector('.nav');
         const heroSection = document.querySelector('.hero');
         
@@ -490,19 +263,6 @@ window.addEventListener('resize', () => {
         }
     }, 250);
 });
-
-// Handle iOS form zoom prevention
-document.addEventListener('touchstart', (e) => {
-    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') {
-        // Allow default behavior
-        return;
-    }
-    
-    // Prevent zoom on double-tap
-    if (e.touches.length > 1) {
-        e.preventDefault();
-    }
-}, { passive: false });
 
 // Add class for touch devices
 if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
