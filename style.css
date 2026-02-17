@@ -1304,3 +1304,92 @@ strong {
 .nav-toggle.active .nav-toggle-line:last-child {
     transform: rotate(-45deg) translate(5px, -5px);
 }
+
+/* Additional styles for updated sections */
+
+/* Skill tags enhancement for better readability with many items */
+.skill-tag {
+    display: inline-block;
+    background-color: var(--color-bg-light);
+    color: var(--color-text);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-fast);
+    line-height: 1.2;
+}
+
+/* Better spacing for skill categories with many tags */
+.skill-category {
+    background-color: white;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    height: fit-content;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+/* Project card enhancements */
+.project-description {
+    font-size: 0.95rem;
+    margin-bottom: var(--space-md);
+    color: var(--color-text-light);
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.project-card:hover .project-description {
+    -webkit-line-clamp: unset;
+    overflow: visible;
+}
+
+/* Responsive adjustments for 3-column projects grid */
+@media (max-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .skill-category {
+        padding: var(--space-lg);
+    }
+}
+
+/* Icon variations for new skill categories */
+.skill-icon .fa-chart-bar {
+    color: var(--color-primary);
+}
+
+/* Project label variations */
+.project-label {
+    background-color: rgba(37, 99, 235, 0.9);
+    color: white;
+    padding: 0.35rem 0.85rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+/* Ensure consistent image fallback */
+img.error {
+    opacity: 0.7;
+    filter: grayscale(0.5);
+    object-fit: cover;
+}
