@@ -301,3 +301,42 @@ window.addEventListener('resize', () => {
 if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
     document.body.classList.add('touch-device');
 }
+
+// Add this method to your Portfolio class
+initProjectHoverEffects() {
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    projectCards.forEach(card => {
+        const techTags = card.querySelectorAll('.project-tech span');
+        const icon = card.querySelector('.project-icon');
+        
+        card.addEventListener('mouseenter', () => {
+            // Pulse effect on tech tags
+            techTags.forEach((tag, index) => {
+                tag.style.transition = `all 0.2s ease ${index * 0.05}s`;
+                tag.style.transform = 'scale(1.05)';
+                tag.style.backgroundColor = 'rgba(37, 99, 235, 0.15)';
+            });
+            
+            // Icon animation
+            if (icon) {
+                icon.style.transform = 'scale(1.1) rotate(5deg)';
+            }
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            techTags.forEach(tag => {
+                tag.style.transform = 'scale(1)';
+                tag.style.backgroundColor = '';
+            });
+            
+            if (icon) {
+                icon.style.transform = 'scale(1) rotate(0)';
+            }
+        });
+    });
+}
+
+// Don't forget to call it in init():
+// Add this line to the init() method:
+this.initProjectHoverEffects();
