@@ -1,4 +1,4 @@
-// Portfolio JavaScript - Minimal Implementation
+// Portfolio JavaScript - Mobile & Tablet Optimized
 
 class Portfolio {
     constructor() {
@@ -15,60 +15,68 @@ class Portfolio {
         this.initImageLoading();
         this.fixMobileHeaderSpacing();
         this.initConsoleGreeting();
-        this.initProjectHoverEffects(); // New
+        this.initProjectHoverEffects();
     }
 
-    // Mobile Menu
+    // Mobile Menu - Improved Logic
     initMobileMenu() {
         const navToggle = document.querySelector('.nav-toggle');
         const mobileMenu = document.querySelector('.mobile-menu');
-        const navLinks = document.querySelectorAll('.nav-link, .mobile-menu-link');
-        const header = document.querySelector('.nav');
+        const navLinks = document.querySelectorAll('.mobile-menu-link');
 
-        if (!navToggle || !mobileMenu || !header) return;
+        if (!navToggle || !mobileMenu) return;
 
-        const toggleMenu = () => {
-            const isOpening = !mobileMenu.classList.contains('active');
-            
-            mobileMenu.classList.toggle('active');
-            navToggle.classList.toggle('active');
-            
-            // Prevent body scroll when menu is open
-            document.body.style.overflow = isOpening ? 'hidden' : '';
+        // Helper to close menu
+        const closeMenu = () => {
+            mobileMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+            document.body.style.overflow = ''; // Unlock scroll
         };
 
+        // Toggle click
         navToggle.addEventListener('click', (e) => {
             e.stopPropagation();
-            toggleMenu();
+            const isActive = mobileMenu.classList.contains('active');
+            
+            if (isActive) {
+                closeMenu();
+            } else {
+                mobileMenu.classList.add('active');
+                navToggle.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Lock scroll
+            }
         });
 
-        // Close menu when clicking links
+        // Close when clicking ANY link inside the menu
         navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                navToggle.classList.remove('active');
-                document.body.style.overflow = '';
-            });
+            link.addEventListener('click', closeMenu);
         });
 
-        // Close menu when clicking outside
+        // Close when clicking outside
         document.addEventListener('click', (e) => {
             if (mobileMenu.classList.contains('active') && 
                 !mobileMenu.contains(e.target) && 
                 !navToggle.contains(e.target)) {
-                toggleMenu();
+                closeMenu();
             }
         });
-
-        // Close menu on escape key
+        
+        // Handle resize (close menu if user rotates phone to landscape/desktop)
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+        
+        // Close on Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-                toggleMenu();
+                closeMenu();
             }
         });
     }
 
-    // Smooth Scrolling with header offset
+    // Smooth Scrolling with Header Offset Fix
     initSmoothScroll() {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', (e) => {
@@ -82,16 +90,17 @@ class Portfolio {
                 
                 e.preventDefault();
                 
-                // Account for fixed header height
-                const headerHeight = document.querySelector('.nav').offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                const offsetPosition = targetPosition - headerHeight - 10;
-                
+                // Calculate header height dynamically
+                const nav = document.querySelector('.nav');
+                const headerHeight = nav ? nav.offsetHeight : 0;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 10;
+
                 window.scrollTo({
                     top: offsetPosition,
                     behavior: 'smooth'
                 });
-
+                
                 // Update URL without refresh
                 history.pushState(null, null, href);
             });
@@ -117,7 +126,7 @@ class Portfolio {
         let scrollTimeout;
         const debouncedScroll = () => {
             clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(handleScroll, 50);
+            scrollTimeout = setTimeout(handleScroll, 20);
         };
         
         window.addEventListener('scroll', debouncedScroll);
@@ -132,53 +141,56 @@ class Portfolio {
         }
     }
 
-    // Project Card Interactions - Enhanced
+    // Project Card Interactions
     initProjectCards() {
         const projectCards = document.querySelectorAll('.project-card');
         
-        projectCards.forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                if (window.innerWidth > 768) {
+        // Only add hover listeners for non-touch devices
+        if (window.matchMedia('(hover: hover)').matches) {
+            projectCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
                     const links = card.querySelectorAll('.project-link');
                     links.forEach(link => {
                         link.style.transform = 'translateX(4px)';
                     });
-                }
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                const links = card.querySelectorAll('.project-link');
-                links.forEach(link => {
-                    link.style.transform = 'translateX(0)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    const links = card.querySelectorAll('.project-link');
+                    links.forEach(link => {
+                        link.style.transform = 'translateX(0)';
+                    });
                 });
             });
-        });
+        }
     }
 
-    // New: Enhanced project hover effects
+    // Enhanced project hover effects
     initProjectHoverEffects() {
         const projectCards = document.querySelectorAll('.project-card');
         
-        projectCards.forEach(card => {
-            const techTags = card.querySelectorAll('.project-tech span');
-            const description = card.querySelector('.project-description');
-            
-            card.addEventListener('mouseenter', () => {
-                // Pulse effect on tech tags
-                techTags.forEach((tag, index) => {
-                    tag.style.transition = `all 0.2s ease ${index * 0.05}s`;
-                    tag.style.transform = 'scale(1.05)';
-                    tag.style.backgroundColor = 'rgba(37, 99, 235, 0.15)';
+        // Only run on non-touch devices
+        if (window.matchMedia('(hover: hover)').matches) {
+            projectCards.forEach(card => {
+                const techTags = card.querySelectorAll('.project-tech span');
+                
+                card.addEventListener('mouseenter', () => {
+                    // Pulse effect on tech tags
+                    techTags.forEach((tag, index) => {
+                        tag.style.transition = `all 0.2s ease ${index * 0.05}s`;
+                        tag.style.transform = 'scale(1.05)';
+                        tag.style.backgroundColor = 'rgba(37, 99, 235, 0.15)';
+                    });
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    techTags.forEach(tag => {
+                        tag.style.transform = 'scale(1)';
+                        tag.style.backgroundColor = '';
+                    });
                 });
             });
-            
-            card.addEventListener('mouseleave', () => {
-                techTags.forEach(tag => {
-                    tag.style.transform = 'scale(1)';
-                    tag.style.backgroundColor = '';
-                });
-            });
-        });
+        }
     }
 
     // Fix Mobile Header Spacing Issues
@@ -220,6 +232,16 @@ class Portfolio {
     initImageLoading() {
         const images = document.querySelectorAll('img');
         
+        images.forEach(img => {
+            if (img.complete) {
+                img.classList.add('loaded');
+            } else {
+                img.addEventListener('load', () => {
+                    img.classList.add('loaded');
+                });
+            }
+        });
+        
         // Error handling for broken images
         document.addEventListener('error', (e) => {
             if (e.target.tagName === 'IMG') {
@@ -229,7 +251,7 @@ class Portfolio {
         }, true);
     }
 
-    // Console Greeting - Updated with new project info
+    // Console Greeting
     initConsoleGreeting() {
         const styles = [
             'color: #2563eb',
@@ -240,8 +262,7 @@ class Portfolio {
         ].join(';');
         
         console.log('%c👋 Hello! Thanks for checking out my portfolio.', styles);
-        console.log('%c🚀 Featured: TradeMind Pro (Multi-Agent AI), InvestWise, YouTube Sentiment AI', 'color: #6b7280; font-size: 12px;');
-        console.log('%c✨ Clean design, hand-drawn space theme.', 'color: #6b7280; font-size: 12px;');
+        console.log('%c🚀 Featured: TradeMind Pro, InvestWise, YouTube Sentiment AI', 'color: #6b7280; font-size: 12px;');
     }
 }
 
@@ -250,30 +271,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add loading styles
     const style = document.createElement('style');
     style.textContent = `
-        img.loaded {
-            animation: fadeIn 0.5s ease;
-        }
-        
-        img.error {
-            opacity: 0.5;
-            filter: grayscale(1);
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+        img { opacity: 0; transition: opacity 0.5s ease; }
+        img.loaded { opacity: 1; }
+        img.error { opacity: 0.5; filter: grayscale(1); }
         
         /* Fix for iOS Safari 100vh issue */
         @supports (-webkit-touch-callout: none) {
-            .hero {
-                min-height: -webkit-fill-available;
-            }
-        }
-        
-        /* Smooth transitions for project tech tags */
-        .project-tech span {
-            transition: all 0.2s ease;
+            .hero { min-height: -webkit-fill-available; }
         }
     `;
     document.head.appendChild(style);
@@ -282,61 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const portfolio = new Portfolio();
 });
 
-// Handle window resize with debounce
-let resizeTimeout;
-window.addEventListener('resize', () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-        const header = document.querySelector('.nav');
-        const heroSection = document.querySelector('.hero');
-        
-        if (header && heroSection) {
-            const headerHeight = header.offsetHeight;
-            heroSection.style.marginTop = `${headerHeight}px`;
-        }
-    }, 250);
-});
-
 // Add class for touch devices
 if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
     document.body.classList.add('touch-device');
 }
-
-// Add this method to your Portfolio class
-initProjectHoverEffects() {
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    projectCards.forEach(card => {
-        const techTags = card.querySelectorAll('.project-tech span');
-        const icon = card.querySelector('.project-icon');
-        
-        card.addEventListener('mouseenter', () => {
-            // Pulse effect on tech tags
-            techTags.forEach((tag, index) => {
-                tag.style.transition = `all 0.2s ease ${index * 0.05}s`;
-                tag.style.transform = 'scale(1.05)';
-                tag.style.backgroundColor = 'rgba(37, 99, 235, 0.15)';
-            });
-            
-            // Icon animation
-            if (icon) {
-                icon.style.transform = 'scale(1.1) rotate(5deg)';
-            }
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            techTags.forEach(tag => {
-                tag.style.transform = 'scale(1)';
-                tag.style.backgroundColor = '';
-            });
-            
-            if (icon) {
-                icon.style.transform = 'scale(1) rotate(0)';
-            }
-        });
-    });
-}
-
-// Don't forget to call it in init():
-// Add this line to the init() method:
-this.initProjectHoverEffects();
