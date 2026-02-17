@@ -15,6 +15,7 @@ class Portfolio {
         this.initImageLoading();
         this.fixMobileHeaderSpacing();
         this.initConsoleGreeting();
+        this.initProjectHoverEffects(); // New
     }
 
     // Mobile Menu
@@ -131,7 +132,7 @@ class Portfolio {
         }
     }
 
-    // Project Card Interactions
+    // Project Card Interactions - Enhanced
     initProjectCards() {
         const projectCards = document.querySelectorAll('.project-card');
         
@@ -149,6 +150,32 @@ class Portfolio {
                 const links = card.querySelectorAll('.project-link');
                 links.forEach(link => {
                     link.style.transform = 'translateX(0)';
+                });
+            });
+        });
+    }
+
+    // New: Enhanced project hover effects
+    initProjectHoverEffects() {
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        projectCards.forEach(card => {
+            const techTags = card.querySelectorAll('.project-tech span');
+            const description = card.querySelector('.project-description');
+            
+            card.addEventListener('mouseenter', () => {
+                // Pulse effect on tech tags
+                techTags.forEach((tag, index) => {
+                    tag.style.transition = `all 0.2s ease ${index * 0.05}s`;
+                    tag.style.transform = 'scale(1.05)';
+                    tag.style.backgroundColor = 'rgba(37, 99, 235, 0.15)';
+                });
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                techTags.forEach(tag => {
+                    tag.style.transform = 'scale(1)';
+                    tag.style.backgroundColor = '';
                 });
             });
         });
@@ -202,7 +229,7 @@ class Portfolio {
         }, true);
     }
 
-    // Console Greeting
+    // Console Greeting - Updated with new project info
     initConsoleGreeting() {
         const styles = [
             'color: #2563eb',
@@ -213,7 +240,8 @@ class Portfolio {
         ].join(';');
         
         console.log('%c👋 Hello! Thanks for checking out my portfolio.', styles);
-        console.log('%cClean design, hand-drawn space theme.', 'color: #6b7280; font-size: 12px;');
+        console.log('%c🚀 Featured: TradeMind Pro (Multi-Agent AI), InvestWise, YouTube Sentiment AI', 'color: #6b7280; font-size: 12px;');
+        console.log('%c✨ Clean design, hand-drawn space theme.', 'color: #6b7280; font-size: 12px;');
     }
 }
 
@@ -241,6 +269,11 @@ document.addEventListener('DOMContentLoaded', () => {
             .hero {
                 min-height: -webkit-fill-available;
             }
+        }
+        
+        /* Smooth transitions for project tech tags */
+        .project-tech span {
+            transition: all 0.2s ease;
         }
     `;
     document.head.appendChild(style);
